@@ -7,16 +7,13 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
+// Note to self: Don't have to put an if statement as we can directly
+// get the answer by returning str === reverseStr
+
 function palindrome(str) {
-  let reverseStr = "";
-  for (let char of str) {
-    reverseStr = char + reverseStr;
-  }
-  if (str === reverseStr) {
-    return true;
-  } else {
-    return false;
-  }
+  return str.split("").every((char, i) => {
+    return char === str[str.length - 1 - i];
+  });
 }
 
 module.exports = palindrome;
@@ -44,4 +41,13 @@ module.exports = palindrome;
 //   } else {
 //     return false;
 //   }
+// }
+
+// solution 3
+// function palindrome(str) {
+//   let reverseStr = "";
+//   for (let char of str) {
+//     reverseStr = char + reverseStr;
+//   }
+//   return str === reverseStr;
 // }
